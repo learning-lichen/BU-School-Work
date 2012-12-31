@@ -1,0 +1,9 @@
+class Tester
+  rescue NoMethodError do |e|
+    e.inspect
+  end
+  
+  def test_method
+    "Hello World"
+  end
+end

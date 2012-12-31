@@ -1,0 +1,14 @@
+Name: Max Gale
+Email: mgale4@binghamton.edu
+
+Language: 
+     C++
+
+Tested on bingsuns: 
+     Yes.
+
+How to execute:
+     First, extract all of the files into a directory. Then, use make to compile. Two
+executables are created: telnet-serv and telnet-cli. Execute ./telnet-serv on the server
+to start the server. Next, execute ./telnet-cli <host name> to connect to the server.
+    

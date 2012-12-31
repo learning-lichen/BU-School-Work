@@ -1,0 +1,64 @@
+1) 
+Static Scoping:
+  1
+  1
+  2
+  2
+
+Dynamic Binding:
+  1
+  1
+  2
+  1
+
+     Dynamic binding has a different result because the x declared in prcedure 
+second() overrides the global x while second is on the stack. Therefore, the
+set_x called in second() will set the local x when there is dynamic binding.
+
+2) 
+a. Static Scoping:
+  54
+
+b. 7 is printed out if the language uses deep binding because the variables 
+used in add() are bound when the procedure is passed, not when the procedure
+is called. When add is passed into second, x was not defined in secord, so 
+the add only sees the global x, which is 4, and the y defined in first, which
+is 3, so the global x is set to 7. 
+
+c. As stated in b, shallow binding does not bind when the procedure is passed,
+and binds when the variables are actually used instead. So, the call
+to add only modifies the local x in second, and not the global x. Therefore,
+the global x is unmodified, so the priting x yeilds 4. 
+
+3) Based on the diagnostic ouput, I would guess that named, nested subroutines
+are unnested at runtime, and given their own scope. When the subroutine is 
+unnested, all of its variables are initialzed to values.
+
+4)
+A. When I run this code, it executes without any errors. 
+
+B.  This code executes differentl depending on the system, because the ++i 
+causes the while loop to loop 513 times, instead of 512. This means that you 
+can write past the stack end, which could be a seg fault. Or, you could 
+overwrite the variable i on the stack, which would cause and infinite loop.
+
+5) 
+A. The declaration of a variable is stating that a variable exists, and the
+definition of a variable provides a value to an existing variable.
+
+B.
+a. Declaration
+b. Definition
+c. Declaration
+d. Declaration
+e. Declaration
+f. Definition
+
+6) Output:
+  5
+  7
+
+a is likely to be statically allocated.
+c would likely need to be allocated on the heap, because it's lifetime is 
+longer than the call to function b, so the state of c would need to be 
+preserved even after b returned. The other variables could be on the stack.

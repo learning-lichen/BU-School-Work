@@ -1,0 +1,49 @@
+% Author: Max Gale
+
+text = fileread('/Users/max/workplace/school/research/test_data.csv');
+column_names = {};   % Column names
+cytometer_data = {}; % Matrix containing the flow cytometer data.
+
+% Get the locations of newlines, and add a new one at the end.
+newlines = find(text == char(10));
+newlines = [newlines(:);length(text) + 1];
+
+% Get the locations of the semicolons.
+semicolons = find(text == ';');
+
+% Read the column names.
+index = 1;
+counter = 1;
+
+while index < newlines(1)
+   name = text(index:min(semicolons(counter), newlines(1)) - 1);
+   column_names{end + 1, 1} = name;
+   
+   index = semicolons(counter) + 1;
+   counter = counter + 1;
+end
+
+% Must keep the counter from the loop above.
+index = newlines(1) + 1;
+row = 1;
+col = 1;
+
+while counter <= length(semicolons)
+    while index < newlines(row + 1) && counter <= length(semicolons)
+        text_val = text(index:min(semicolons(counter), ...
+                                  newlines(row + 1)) - 1);
+        
+        cytometer_data{row, col} = text_val;
+        
+        index = semicolons(counter) + 1;
+        counter = counter + 1;
+        col = col + 1;
+    end
+       
+    row = row + 1;
+    col = 1;
+end
+
+cytometer_data{end, end} = text(semicolons(end) + 1:newlines(end) - 1);
+
+disp(cytometer_data);

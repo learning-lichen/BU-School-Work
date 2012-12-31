@@ -1,0 +1,132 @@
+Raymond Conn
+Programming languages hw 8
+rconn1@binghamton.edu
+
+
+1)
+	int a[] = {0, 1, 2, 3, 4}; int n = 2;
+
+	int x = (a[n++] = a[n--] + a[++n] && a[n]);				a has 0,1,2,3,4 and doesn't change
+															n=2                   x=?
+	int x=(a[2] = a[n--] + a[++n] && a[n])					n=3
+	int x=(a[2] = a[3] + a[++n] && a[n])  					n=2
+	int x=(a[2] = a[3] + a[3] && a[n])						n=3
+	int x=(a[2] = 6 && a[n])								n=3
+	int x=(a[2] = 6 && a[3])								n=3
+	int x=(a[2] = 6 && 3)									n=3
+	int x=(a[2] = 1)										n=3
+	int x=(1)												n=3  x=1
+
+
+
+	int a[] = {0, 1, 2, 3, 4}; int n = 2;
+
+	int x = (a[n++] = a[n--] + a[++n] && a[n]);				a has 0,1,2,3,4 and doesn't change
+															n=2                   x=?
+	int x = (a[n++] = a[n--] + a[3] && a[n])				n=3
+	int x = (a[n++] = a[3] + a[3] && a[n])					n=2
+	int x = (a[2] = a[3] + a[3] && a[n])					n=3
+	int x = (a[2] = a[3] + a[3] && a[n])					n=3
+	int x = (a[2] = 6 && a[n] )								n=3
+	int x = (a[2] = 6 && a[3])								n=3
+	int x = (a[2] = 1)										n=3
+	int x = (1)												n=3			x=1
+
+
+
+2)
+
+	lst = [ ]
+	lst[0]=1
+	1.upto(5){|n| lst[n]=n*lst[n-1]}
+
+	puts lst
+
+
+3)
+	these statments are not contradictionary. associativity is used to to determine the grouping of the expression.meaning it says which arguments belong to each operator. it does not say which grouping is evaluated first.
+
+4)
+	the infix expression (9+3)+(6*3)+10 equates to 40. if we write this in prefix without parenthis it would be +9 3 *6 3 10. there is ambiguty as to which number belong to each operator to fix this we need to parenthisize with
+	+9 3 (*6 3 )10. the assumption that is normally made with prefix notation is there is a strict limit on how many numbers can belong to an operator usually 2. in the case of lisp where there can be more than 2 we will need parenthises.
+
+5)	&(&z) is not legal in c becuase it is asking for the address of an address which does not make sense. there is no address(location) for a location. this would be like asking for the address of the address to your house.
+	if i lived on 123 main st it would be like asking what is the address of 123 main st which makes no logical sense.
+
+
+6)
+
+	
+    def preorder(self):
+        if self.label!= None:
+            yield self.label
+        if self.left!=None:
+            for d in self.left.preorder():
+                yield d
+        if self.right!= None:
+            for d in self.right.preorder():
+                yield d
+
+
+
+    def postorder(self):
+        if self.left!=None:
+            for i in self.left.preorder():
+                yield i
+        if self.right!=None:
+            for i in self.right.preorder():
+                yield i
+        if self.label!=None:
+            yield self.label
+
+
+ both functions are also defined in the attached file
+
+7)
+
+8)
+	a)
+		1) this is concatenating two lists together
+		2) this is concatenating two tuples together
+		3) this can not be done because it is trying to concatenate a list with a tuple
+
+	b) look at attached pdf
+
+	c)
+		def gen():
+			yield 'a'
+			yield 4
+			yield(1,2)
+	d) yes the above script will work for list tuples and above gen function. the reason being is they are all iteratable objects. the for each loop calls the next method on all the objects and since there all iteratable the next value is returned
+
+	e)
+
+9)
+	a) in java the output of this code is -6 this tells me that java must be casting the result to an int because the return type is of type double but gets stored in an int
+	b)in c the output is -6. it seems that c does not check for type when doing subtraction and allows the subtraction of a double from an int
+
+10)
+
+	a) You can only assign a value to a reference when you initialize it, and you cannot reassign the value. You can re-assign a value to a pointer multiple times. 
+	b) Taking the address of a pointer will point to where the pointer is stored. Taking the address of a reference is not allowed. 
+	c) void* is a pointer that can point to anytype in c. the reason we have is when functions can return differnt types of structs returning it as void* and then casting to the appropiate types allows for this
+	   in c a pointer can be assigned to any pointer type without a cast where c++ needs a cast. the code below is valis in c but not c++
+		void* ptr;
+		int *i = ptr;
+	d) this will compile but this will not work. there will be a segfault if you try and assign a vaule to a outside of this funttion. this becasue the location pointed to by a is changing inside the function so you would have to return a for this to work
+	
+
+11)
+	the problem with the following code is the order of the catch blocks. the genearl catch is cought before the specific catch. so you will never no the specifics of your catch becuase everything is caught as a general esxception
+
+12)
+	the loops are will execute equivantley until after the last iteration. so after the while loop terminates i will be one more than it will after the for loop terminates
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+Max Gale
+mgale4@binghamton.edu
+
+This code was tested on bingsuns.
+
+To execute, do ./prime <n> <a> or ./rsa <p> <q>
+
+The algorithms used follow exactly what was outlined in the assignment description.

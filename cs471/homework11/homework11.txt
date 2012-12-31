@@ -1,0 +1,8 @@
+I was able to computer the answer, up to five significant digits, in 6 steps. 
+The answer was 12.0005457307424. You know when to stop when your average changes
+very little. As for sqrt(5), 2.23606797749979 is definitely not the exact 
+square root, because 2.23606797749979 is rational and the square root of 5 is
+known to be irrational. 
+
+I computer sqrt(5e+30) to be 2236067977499789.5 in 50 steps.
+

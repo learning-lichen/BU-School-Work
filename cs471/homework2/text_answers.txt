@@ -1,0 +1,80 @@
+1)
+     A pragma is a language feature which allows the programmer to provide 
+directives or hints to the compiler. They are processed by the scanner because
+they do not change the syntax or semantics of the language. Allowing pragmas
+gives more control to the programmer over how the language compiles, but it
+also makes compiler implementation more difficult because the pragma behavior
+should be consistent across compilers.
+
+2)
+statement: IF condition then_begin_clause else_clause END | other_statement
+then_begin_clause: THEN BEGIN stmt_list | THEN BEGIN inside_else_clause
+else_clause: ELSE statement_list | <nothing>
+inside_else_clause: ELSE statement_list END | <nothing>
+
+3)
+a)
+w + x @ y @ z
+w + (x @ (y @ z))
+w + (x @ (@ y z))
+w + (@ x @ y z)
++ w @ x @ y z
+
+b)
+w + (x @ y + z)
+w + ((x @ y) + z)
+w + ((@ x y) + z)
+w + (+ @ x y z)
++ + @ x y z w
+
+c)
+w @ x + y + x
+((w @ x) + y) + x
+((@ w x) + y) + x
++ + @ w x y x
+
+d)
+w / x * y / z
+(w / x) * (y / z)
+(/ w x) * (/ y z)
+* / w x / y z
+
+4) 
+a)
+w + x @ y @ z
+w + ((x @ y) @ z)
+w + ((x y @) @ z)
+w + (x y z @ @)
+w x y z @ @ +
+
+b)
+w + (x @ y + z)
+w + ((x @ y) + z)
+w + ((x y @) + z)
+w + (x y @ z +)
+w x y @ z + +
+
+c)
+w @ x + y + x
+((w @ x) + y) + x
+((w x @) + y) + z
+(w x @ y +) + z
+w x @ y + z +
+
+d)
+w / x * y / z
+(w / x) * (y / z)
+(w x /) * (y z /)
+w x / y z / *
+
+5)
+a1)
+Octal Integers: /(0)([0-7]*)/
+Hexidecimal Integers: /(0x)([0-9A-Fa-f]*)/
+Decimal Integers: /([0-9]*)/
+
+a2)
+Whole Dollar Amounts: /\$(\**)([0-9]*)/
+
+b)
+Phone Numbers: /(\+1)\s(\([2-9][0-9]{2}\)\s|[2-9][0-9]{2}\s\-\s)[2-9][0-9]{2}\s\-\s[0-9]{4}/

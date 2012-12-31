@@ -1,0 +1,59 @@
+
+
+1)	speed-both inline functions and macros have less overhead than a function call so they are faster
+	space- normal function calls take up less space than inline functions and macros
+	type checking- macros have no type checking and just preform text swaping. inline functions and normal function calls both have type checking.
+	
+	
+2)	
+
+
+3)	a) structural equivalence-w,x,y,z
+	b) strict name equivalence- x,y
+	c) C equivalence- w,y,z
+	
+4)	
+	vp = dp;	--the compiler allows this because a void pointer can be of any type
+	dp = vp;	-- the compiler does not allow this the void pointer need to be casted to a double
+	ip = dp;	-- the compiler does not allow this the types dont match
+	dp = ip;	-- the compiler does not allow this a explict cast is needed
+	ip = vp;	-- the compiler does not allow this void point needs to be casted to an int
+	
+	ip = (int*) vp; -- compiler casts the vp to an int type and then assigns it to ip which is allowed
+	ip = static_cast<int*>(vp); -- casts the vp to an int which is allowed
+	ip = static_cast<int*>(dp);	-- this is not allowed because the types are not related
+	ip = reinterpret_cast<int*>(dp); -- this is allowed because no type checking is done and does a binary copy of the memory pointed to
+	
+	ip will not have the value three after one of the above statements. the only statement that the compiler
+	doesnt complain about, concering the double* to int*, is the last one which is the reinterpret_cast.
+	this will do a binary copy but since ints are not represented the same way as doubles the vaule in the
+	int pointer will not be 3. 
+	
+5)
+	the size of one record would be 8 bytes.
+	with row major A[3][7] will be the 37 recored stored in memory.
+	since each record is 8 bytes it will be at offset 37*12=296.
+	since A starts at 1000, A[3][7] will have the address of 1296
+
+6)
+	a is an array of n pointer to a double
+	b is pointer to array of n doubles
+	c is array of n pointer to function returning a double
+	d is a function returning a pointer to an array of n doubles
+	
+7)
+	k = 4.
+	The output of the file is:
+	2, 8, 4, 32, 72, 8
+	This output is optained through pointer arithmatic. int * i; i + 1 is equivalent to i + (1 * sizeof(int)). 
+	You can apply this rule to the int cases, and then you can use the sizeof(A) = 2 * k to obtain the rest of the results. 
+
+8)
+	a) with pass by value the result will be (12)*2=24
+	b) with macro expansion the result will be 5+7*2=19
+	
+9)
+	
+	In C, enums are simply aliases for integers. Enums in C++ declare a new type for the enum,
+	so you get type safety features. Enums in C++, however, do not have state. Enums in Java do have state,
+	and they can have methods and constructors. 

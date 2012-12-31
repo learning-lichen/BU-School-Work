@@ -1,0 +1,54 @@
+Max Gale
+mgale4@binghamton.edu
+
+1) 
+
+a.
+A[0] = 1
+A[1] = 3
+A[2] = 1
+A[3] = 2
+
+b.
+A[0] = 0
+A[1] = 1
+A[2] = 1
+A[3] = 2
+
+c.
+A[0] = 1
+A[1] = 3
+A[2] = 1
+A[3] = 2
+
+d.
+A[0] = 1
+A[1] = 3
+A[2] = 1
+A[3] = 2
+
+e.
+A[0] = 1
+A[1] = 3
+A[2] = 1
+A[3] = 2
+
+2)
+Yes, the bar class has two fields named b. They are both accessible. Any 
+instance of bar can be cast to type foo to access the char* b.
+
+In memory it looks something like this:
+
+-------------- _____________
+| int a      | foo part |  |
+| char* b    | __________  |
+|------------|             |
+| float c    |   bar part  |
+| int b      |             |
+--------------______________
+
+3) It is acceptable to declare variables of type foo* in C++ because if 
+size of foo* is known at compile time, but the size of foo is not known until
+link time. In Java it is ok to declare an object of type foo because it keeps
+all the class information is memory so it can perform a lookup in the itable
+(interface table) for the actions performed on the instance of foo. 

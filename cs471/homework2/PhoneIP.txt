@@ -1,0 +1,28 @@
+You may assume a maximum of one phone number per line. Also, phone number 
+does not span two lines.
+
+The following numbers are invalid, 
+ -- since neither NPA nor NXX can start with 0 or 1.
+tom = +1 (001) 234 - 5675
+mary = +1 (111) 234 - 5674
+
++1 (123) 001 - 2344
++1 (123) 123 - 4565
+
+ -- since NPA or NXX or Subscriber Number is too short or too long
+ 
++1 (607) 77 - 4730
++1 607 - 777 - 429
++1 (80) - 432 - 3117
++1 866 - 2164 - 1072
+
+  -- second number does not have to be picked up
+
+Harry = +1 (800) 432 - 3117 and Kathy phone number is +1 866 - 216 - 1072
+
+
+The following numbers are valid:
+Joe = +1 (607) 777 - 4730
++1 607 - 777 - 4729
+Harry = +1 (800) 432 - 3117 
+and Kathy phone number is +1 866 - 216 - 1072
